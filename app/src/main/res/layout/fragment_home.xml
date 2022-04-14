@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment" >
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="267dp"
+        android:layout_below="@+id/editTextTextPersonName3"
+        android:layout_marginTop="2dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mapView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Search food" />
+
+    <ListView
+        android:id="@+id/mainMenu"
+        android:layout_width="match_parent"
+        android:layout_height="305dp"
+        android:layout_below="@+id/editTextTextPersonName"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="52dp"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="261dp">
+
+
+
+    </ListView>
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Current Location" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toEndOf="@+id/editTextTextPersonName3"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Destination" />
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Forager</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Messages</string>
+    <string name="title_notifications">TimeLine</string>
+</resources>

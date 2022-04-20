@@ -33,10 +33,10 @@ private FragmentHomeBinding binding;
         String[] menuItems = {"Milk" , "Eggs" , "Peanut butter" , "cottage cheese" , "bananas" , "apples" , "basmati rice" ,
                 "cashews"};
 
-        String[] donorName = {"Milk" , "Eggs" , "Peanut butter" , "cottage cheese" , "bananas" , "apples" , "basmati rice" ,
-                "cashews"};
+        String[] donorName = {"karthik" , "aditya" , "peter" , "erick" , "Nate" , "paul" , "karthik" ,
+                "amrit"};
 
-        int[] images = {R.drawable.apple};
+        int[] images = {R.drawable.milk , R.drawable.eggs , R.drawable.pb , R.drawable.cottage_cheese , R.drawable.bananas , R.drawable.apple , R.drawable.basmati };
 
         ListView listview = (ListView) root.findViewById(R.id.mainMenu);
 

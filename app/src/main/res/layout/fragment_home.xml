@@ -24,7 +24,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Search food" />
+        android:hint="Search food"/>
 
     <ListView
         android:id="@+id/mainMenu"
@@ -36,7 +36,6 @@
         android:layout_marginBottom="52dp"
         tools:layout_editor_absoluteX="34dp"
         tools:layout_editor_absoluteY="261dp">
-
 
 
     </ListView>
@@ -60,6 +59,6 @@
         android:layout_toEndOf="@+id/editTextTextPersonName3"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Destination" />
+        android:text="search area" />
 
 </RelativeLayout>

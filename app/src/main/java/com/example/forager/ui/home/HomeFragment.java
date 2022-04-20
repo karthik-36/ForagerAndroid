@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,21 +30,25 @@ private FragmentHomeBinding binding;
 
 
 
-        String[] menuItems = {"Milk" , "Eggs" , "Penut buttur" , "cottage cheese" , "bananas" , "apples" , "basmati rice" ,
+        String[] menuItems = {"Milk" , "Eggs" , "Peanut butter" , "cottage cheese" , "bananas" , "apples" , "basmati rice" ,
                 "cashews"};
+
+        String[] donorName = {"Milk" , "Eggs" , "Peanut butter" , "cottage cheese" , "bananas" , "apples" , "basmati rice" ,
+                "cashews"};
+
+        int[] images = {R.drawable.apple};
 
         ListView listview = (ListView) root.findViewById(R.id.mainMenu);
 
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                android.R.layout.simple_list_item_1,
+                R.layout.single_row,
+                R.id.itemName,
                 menuItems
         );
 
 
-        listview.setAdapter(listViewAdapter
-
-        );
+        listview.setAdapter(listViewAdapter);
 
 
         return root;

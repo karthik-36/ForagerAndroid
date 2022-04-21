@@ -34,6 +34,8 @@ private ActivityMainBinding binding;
         //getSupportActionBar().hide();
 
 
+
+
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 

@@ -22,8 +22,8 @@ private FragmentSettingsBinding binding;
         SettingsViewModel SettingsViewModel =
                 new ViewModelProvider(this).get(com.example.forager.ui.settings.SettingsViewModel.class);
 
-    binding = FragmentSettingsBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
+        binding = FragmentSettingsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
 //        final TextView textView = binding.textSettings;
 //        SettingsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

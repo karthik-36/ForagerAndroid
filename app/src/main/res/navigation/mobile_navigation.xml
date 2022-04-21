@@ -28,4 +28,11 @@
         android:name="com.example.forager.ui.settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_confirm"
+        android:name="com.example.forager.ui.confirm.ConfirmFragment"
+        android:label="Confirm"
+        tools:layout="@layout/fragment_confirm" />
+
 </navigation>

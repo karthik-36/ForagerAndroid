@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,10 +16,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.forager.R;
 import com.example.forager.databinding.FragmentHomeBinding;
+import com.example.forager.ui.confirm.ConfirmFragment;
+import com.example.forager.ui.settings.SettingsFragment;
+import com.example.forager.ui.settings.SettingsViewModel;
 
 public class HomeFragment extends Fragment {
 
@@ -57,8 +64,47 @@ private FragmentHomeBinding binding;
 
         listview.setAdapter(adapter);
 
+
+
+        // Create new fragment and transaction
+//        Fragment newFragment = new SettingsFragment();
+//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//
+//        transaction.replace(R.id.navigation_home, newFragment);
+//        transaction.addToBackStack(null);
+//
+//        transaction.commit();
+
+        ImageButton button = (ImageButton) root.findViewById(R.id.itemPlus);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ConfirmFragment llf = new ConfirmFragment();
+                ft.replace(R.id.nav_host_fragment_activity_main, llf);
+                ft.commit();
+
+            }
+        });
+
+
+
+
+
+
         return root;
     }
+
+//    public void onClickNewItem(View v)
+//    {
+//        FragmentManager fm = getFragmentManager();
+//        FragmentTransaction ft = fm.beginTransaction();
+//        ConfirmFragment llf = new ConfirmFragment();
+//        ft.replace(R.id.nav_host_fragment_activity_main, llf);
+//        ft.commit();
+//    }
 
 @Override
     public void onDestroyView() {

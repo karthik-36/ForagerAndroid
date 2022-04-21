@@ -16,38 +16,52 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="357dp"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mapView"
         android:layout_alignParentStart="true"
         android:layout_marginStart="42dp"
         android:layout_marginTop="2dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Search food"/>
+        android:hint="Search food"
+        android:inputType="textPersonName" />
 
     <ListView
         android:id="@+id/mainMenu"
         android:layout_width="match_parent"
-        android:layout_height="305dp"
+        android:layout_height="317dp"
         android:layout_below="@+id/editTextTextPersonName"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="52dp"
         tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="261dp">
-
-
-    </ListView>
-
+        tools:layout_editor_absoluteY="261dp"></ListView>
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Current Location" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="159dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="62dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/add" />
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
@@ -60,5 +74,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="search area" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@android:drawable/ic_input_add" />-->
 
 </RelativeLayout>

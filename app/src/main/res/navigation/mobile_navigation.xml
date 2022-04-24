@@ -35,4 +35,10 @@
         android:label="Confirm"
         tools:layout="@layout/fragment_confirm" />
 
+    <fragment
+        android:id="@+id/navigation_orders"
+        android:name="com.example.forager.ui.orders.OrdersFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_order" />
+
 </navigation>

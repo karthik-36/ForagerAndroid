@@ -7,15 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment" >
 
-  
 
-
-    <com.google.android.gms.maps.MapView
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mapView"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="267dp"
         android:layout_below="@+id/editTextTextPersonName3"
         android:layout_marginTop="2dp" />
+
+<!--    <com.google.android.gms.maps.MapView-->
+<!--        android:id="@+id/mapView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="267dp"-->
+<!--        android:layout_below="@+id/editTextTextPersonName3"-->
+<!--        android:layout_marginTop="2dp" />-->
 
     <EditText
         android:id="@+id/editTextTextPersonName"

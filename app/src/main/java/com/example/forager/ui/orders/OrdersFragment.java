@@ -2,15 +2,15 @@ package com.example.forager.ui.orders;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
+import com.example.forager.R;
 import com.example.forager.databinding.FragmentOrderBinding;
 
 public class OrdersFragment extends Fragment {
@@ -19,15 +19,16 @@ private FragmentOrderBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        OrdersViewModel ordersViewModel =
-                (OrdersViewModel) new ViewModelProvider(this).get(ViewModel.class);
 
-    binding = FragmentOrderBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
+        View view = inflater.inflate(R.layout.fragment_order, container, false);
 
-//        final TextView textView = binding.textMessage;
-//        ordersViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+
+        Bundle bundle = this.getArguments();
+        int myInt = bundle.getInt("itemPosition", 1);
+
+        Log.d("itemPosition ", " position " + myInt);
+
+        return view;
     }
 
 @Override
@@ -36,3 +37,22 @@ private FragmentOrderBinding binding;
         binding = null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//        OrdersViewModel ordersViewModel =
+//                (OrdersViewModel) new ViewModelProvider(this).get(ViewModel.class);
+//
+//    binding = FragmentOrderBinding.inflate(inflater, container, false);
+//    View root = binding.getRoot();
+
+//        final TextView textView = binding.textMessage;
+//        ordersViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

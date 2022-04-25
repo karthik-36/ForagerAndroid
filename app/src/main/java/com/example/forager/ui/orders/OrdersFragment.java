@@ -165,7 +165,6 @@ private FragmentOrderBinding binding;
                 boolean installed = isAppInstalled("com.whatsapp");
                 if(installed){
 
-
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+phone[0]+"&text="+ text));
                     startActivity(intent);

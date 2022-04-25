@@ -83,7 +83,17 @@
         android:inputType="textPersonName"
         android:text="search area" />
 
-<!--    <ImageButton-->
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mapView"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="-42dp"
+        android:layout_toStartOf="@+id/editTextTextPersonName"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <!--    <ImageButton-->
 <!--        android:id="@+id/imageButton2"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

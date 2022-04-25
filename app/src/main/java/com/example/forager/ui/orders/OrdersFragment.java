@@ -24,9 +24,9 @@ private FragmentOrderBinding binding;
 
 
         Bundle bundle = this.getArguments();
-        int myInt = bundle.getInt("itemPosition", 1);
+        String itemName = bundle.getString("itemName", " ");
 
-        Log.d("itemPosition ", " position " + myInt);
+        Log.d("itemName ", " position " + itemName);
 
         return view;
     }

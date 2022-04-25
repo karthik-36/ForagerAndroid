@@ -57,18 +57,24 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
 //    private FragmentHomeBinding binding;
 
-
+    ListView listview;
+    kAdapter adapter;
     GoogleMap map;
     SupportMapFragment mapFragment;
     private GoogleMap mMap;
 
     //current and destination location objects
     Location myLocation = null;
-    Location destinationLocation = null;
     protected LatLng start = null;
     protected LatLng end = null;
     LatLng[] destinations;
     String[] menuItems;
+    List<String> filteredMenu = new ArrayList<String>();
+    List<Integer> filteredImages = new ArrayList<Integer>();
+    List<LatLng> filteredLatLong = new ArrayList<LatLng>();
+    List<String> filteredDonors = new ArrayList<String>();
+
+
     Boolean isNew = true;
     EditText editText;
     int selectedList = -1;
@@ -100,6 +106,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
 
+
+
         menuItems = new String[]{"500ml Milk", "2 dozen Eggs", "Peanut butter jar", "cottage cheese", "bananas", "apples", "basmati rice",
                 "cashews"};
         String[] donorName = {"karthik", "aditya", "peter", "erick", "Nate", "paul", "karthik", "amrit"};
@@ -107,10 +115,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
         int[] images = {R.drawable.milk, R.drawable.eggs, R.drawable.pb, R.drawable.cottage_cheese, R.drawable.bananas, R.drawable.apple, R.drawable.basmati, R.drawable.cashew};
         destinations = new LatLng[]{new LatLng(41.86970636792965, -87.65487239804796) ,  new LatLng(41.867667097915096, -87.64239594283593) ,  new LatLng(41.87352215752626, -87.64807617785777)  ,  new LatLng(41.863998807911955, -87.6475392074577) ,  new LatLng(41.868376823816185, -87.65775309712812) ,  new LatLng(41.872802617151144, -87.66131585779513) ,  new LatLng(41.87689351773915, -87.65290400086626) ,  new LatLng(41.87262728007855, -87.65644437727795) };
 
+        for( int i = 0 ; i < menuItems.length; i++){
+                filteredMenu.add(menuItems[i]);
+                filteredImages.add(images[i]);
+                filteredDonors.add(donorName[i]);
+                filteredLatLong.add(destinations[i]);
+        }
 
 
-        ListView listview = (ListView) view.findViewById(R.id.mainMenu);
-        kAdapter adapter = new kAdapter(getContext(), menuItems, images, donorName);
+        listview = (ListView) view.findViewById(R.id.mainMenu);
+        adapter = new kAdapter(getContext(), filteredMenu, filteredImages, filteredDonors);
         listview.setAdapter(adapter);
 
 
@@ -138,13 +152,32 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 //                    //do your work here
 //                }
 
-                Log.d("char1", "onTextChanged: ");
+                Log.d("char1", "onTextChanged: " + s.toString());
+
+                filteredMenu.clear();
+                filteredImages.clear();
+                filteredDonors.clear();
+                filteredLatLong.clear();
+                for( int i = 0 ; i < menuItems.length; i++){
+                    if(menuItems[i].toLowerCase().contains(s.toString().toLowerCase())){
+                        filteredMenu.add(menuItems[i]);
+                        filteredImages.add(images[i]);
+                        filteredLatLong.add(destinations[i]);
+                        filteredDonors.add(donorName[i]);
+                    }
+                }
+
+                mMap.clear();
+
+                for(int i = 0 ; i < filteredLatLong.size() ; i++){
+                    Log.d("herem", "onMarkerClick: " + menuItems[i]);
+                    mMap.addMarker(new MarkerOptions().position(filteredLatLong.get(i)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title(filteredMenu.get(i)));
+                }
+                mMap.getUiSettings().setMapToolbarEnabled(true);
 
 
-//                for(){
-//
-//                }
-
+                Log.d("char2", "Filter: " + filteredMenu);
+                adapter.notifyDataSetChanged();
             }
 
 
@@ -471,6 +504,20 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
         mMap.getUiSettings().setMapToolbarEnabled(true);
 
+        for(int j = 0 ; j < destinations.length; j++){
+            System.out.println("cmp1"+marker.getTitle()+":"+menuItems[j]);
+            if(marker.getTitle().equals(menuItems[j])){
+                selectedList = j;
+                break;
+            }
+        }
+        if(previousRl != null) {
+            previousRl.setBackgroundResource(android.R.color.transparent);
+        }
+
+
+        adapter.notifyDataSetChanged();
+
         return false;
     }
 
@@ -490,15 +537,15 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
     class kAdapter extends ArrayAdapter<String> {
         Context context;
-        int[] images;
+        List<Integer> images;
 
-        String[] menuItems;
+        List<String> menuItems;
 
-        String[] donorName;
+        List<String> donorName;
 
         String[] expiryDate = {"2 days"};
 
-        kAdapter(Context c, String[] mI, int imgs[], String[] dN) {
+        kAdapter(Context c, List<String> mI, List<Integer> imgs, List<String> dN) {
             super(c, R.layout.single_row, R.id.itemName, mI);
             this.context = c;
             this.images = imgs;
@@ -510,6 +557,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = inflater.inflate(R.layout.single_row, parent, false);
 
@@ -528,10 +576,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 rl.setBackgroundResource(android.R.color.transparent);
             }
 
-            myImage.setImageResource(images[position]);
-            itemName.setText(menuItems[position]);
+            myImage.setImageResource(images.get(position));
+            itemName.setText(menuItems.get(position));
             expiryText.setText(expiryDate[0]);
-            donorText.setText(donorName[position]);
+            donorText.setText(donorName.get(position));
 
             ImageButton deleteImageView = (ImageButton) row.findViewById(R.id.details);
             deleteImageView.setOnClickListener(new View.OnClickListener() {
@@ -542,7 +590,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
 
                     Bundle bundle = new Bundle();
-                    bundle.putInt("itemPosition", position);
+                    bundle.putString("itemName", menuItems.get(position));
                     llf.setArguments(bundle);
 
 
@@ -552,24 +600,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
             });
 
 
-
-//            myImage.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//                   itemClick(position,v);
-//                }
-//            });
-//            itemName.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//                    itemClick(position,v);
-//                }
-//            });
-//            donorText.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//                    itemClick(position,v);
-//                }
-//            });
-//            expiryText
-
             rl.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     itemClick(position,v);
@@ -577,25 +607,24 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 }
             });
 
-
             return row;
         }
 
 
         private void itemClick(int position , View v){
+
+            adapter.notifyDataSetChanged();
             if(previousRl != null) {
                 previousRl.setBackgroundResource(android.R.color.transparent);
             }
             v.setBackgroundResource(R.color.purple_700);
             mMap.clear();
             for(int i = 0 ; i < destinations.length ; i++){
-                mMap.addMarker(new MarkerOptions().position(destinations[i]).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title(menuItems[i]));
+                mMap.addMarker(new MarkerOptions().position(destinations[i]).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title(menuItems.get(i)));
             }
             selectedList = position;
             mMap.getUiSettings().setMapToolbarEnabled(true);
             Findroutes(start, destinations[position]);
-
-
 
             return;
         }

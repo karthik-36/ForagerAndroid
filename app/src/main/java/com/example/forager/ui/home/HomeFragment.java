@@ -317,7 +317,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
         for (int i = 0; i < route.size(); i++) {
 
             if (i == shortestRouteIndex) {
-                polyOptions.color(getResources().getColor(R.color.purple_700));
+                polyOptions.color(getResources().getColor(R.color.dkgrey));
                 polyOptions.width(7);
                 polyOptions.addAll(route.get(shortestRouteIndex).getPoints());
                 Polyline polyline = mMap.addPolyline(polyOptions);
@@ -584,7 +584,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
             RelativeLayout rl = (RelativeLayout) row.findViewById(R.id.wholeRow);
 
             if(selectedList == position){
-                rl.setBackgroundResource(R.color.purple_700);
+                rl.setBackgroundResource(R.color.dkgrey);
             }else{
                 rl.setBackgroundResource(android.R.color.transparent);
             }
@@ -634,7 +634,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
             if(previousRl != null) {
                 previousRl.setBackgroundResource(android.R.color.transparent);
             }
-            v.setBackgroundResource(R.color.purple_700);
+            v.setBackgroundResource(R.color.dkgrey);
             mMap.clear();
             for(int i = 0 ; i < destinations.length ; i++){
                 mMap.addMarker(new MarkerOptions().position(destinations[i]).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).title(menuItems.get(i)));

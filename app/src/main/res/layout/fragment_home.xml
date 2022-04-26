@@ -44,8 +44,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="52dp"
-        android:dividerHeight="2dp"
-        android:divider="@color/yellowLight"
+        android:divider="@color/dkgrey"
+        android:dividerHeight="1dp"
         tools:layout_editor_absoluteX="34dp"
         tools:layout_editor_absoluteY="261dp"></ListView>
 
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Current Location" />
+        android:hint="Current Location" />
 
     <ImageButton
         android:id="@+id/itemPlus"
@@ -83,7 +83,7 @@
         android:layout_toEndOf="@+id/editTextTextPersonName3"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Search area" />
+        android:hint="Search area" />
 
     <ImageView
         android:id="@+id/imageView3"

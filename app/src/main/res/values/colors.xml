@@ -12,5 +12,7 @@
     <color name="green">#FF08FF08</color>
     <color name="grey">#FF777777</color>
     <color name="yellowLight">#FFFFFF44</color>
+    <color name="dkgrey">#353634</color>
+
 
 </resources>

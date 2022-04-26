@@ -154,7 +154,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 bundle.putBoolean("fromTimeline", false);
                 llf.setArguments(bundle);
 
-                ft.replace(R.id.nav_host_fragment_activity_main, llf);
+                ft.replace(R.id.nav_host_fragment_activity_main, llf).addToBackStack( "tag" );
                 ft.commit();
 
             }
@@ -610,7 +610,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                     llf.setArguments(bundle);
 
 
-                    ft.replace(R.id.nav_host_fragment_activity_main, llf);
+                    ft.replace(R.id.nav_host_fragment_activity_main, llf).addToBackStack( "tag" );
                     ft.commit();
 
                 }

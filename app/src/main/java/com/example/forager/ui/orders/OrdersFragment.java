@@ -138,7 +138,7 @@ private FragmentOrderBinding binding;
             expiry = new String[]{"11-26-2022", "10-10-2020", "09-20-2022", "09-19-2020",  "01-14-2020", "05-05-2019"};
             quantity = new String[]{"6 x 1 count", "12 x 1 count", "1 count", "1 count", "10 oz", "12 oz"};
 
-            descriptions = new String[]{"Fresh Avocados. good for health, I did not want to waste. Bought on 04/20/2022. Best before 3 weeks", "Dozen Mandarin Oranges. Slightly sour taste. And oh yeah the color is orange too!. Bought on 04/20/2022. Best before 2 weeks of expiry", "1 pack of Ruffles of Cheddar and Sour Cream. was a bit too spicy for me. Bought on 03/24/2022. Best before 7 months of manufacturing date", "Fresh Spinach. Wanna get muscles like popeye? better eat this. Bought on 04/15/2022. Best before 04/30/2022", "Fresh Okra. I have no idea what this fruit is. Bought on 04/16/2022. Best before 04/28/2022"};
+            descriptions = new String[]{"Fresh Avocados. good for health, I did not want to waste. Bought on 04/20/2022. Best before 3 weeks", "Dozen Mandarin Oranges. Slightly sour taste. And oh yeah the color is orange too!. Bought on 04/20/2022. Best before 2 weeks of expiry", "1 pack of Ruffles of Cheddar and Sour Cream. was a bit too spicy for me. Bought on 03/24/2022. Best before 7 months of manufacturing date", "1 pack of hot chilli takies. was a bit too spicy for my taste. Bought on 03/24/2022. Best before 11 months of manufacturing date" ,  "Fresh Spinach. Wanna get muscles like popeye? better eat this. Bought on 04/15/2022. Best before 04/30/2022", "Fresh Okra. I have no idea what this fruit is. Bought on 04/16/2022. Best before 04/28/2022"};
 
             titleStatus.setText("Status : "+"Order Received");
             placeOrder.setVisibility(View.GONE);

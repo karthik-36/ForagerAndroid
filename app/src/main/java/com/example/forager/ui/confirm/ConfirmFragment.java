@@ -62,7 +62,7 @@ public class ConfirmFragment extends Fragment implements OnMapReadyCallback, Rou
     Bitmap bitmap;
 
 
-
+    boolean fromTimeLine;
     Boolean isNew = true;
 
 
@@ -79,6 +79,8 @@ public class ConfirmFragment extends Fragment implements OnMapReadyCallback, Rou
                 new ViewModelProvider(this).get(ConfirmViewModel.class);
 
         View view = inflater.inflate(R.layout.fragment_confirm, container, false);
+
+        fromTimeLine = false;
 //
 //        binding = FragmentConfirmBinding.inflate(inflater, container, false);
 //        View root = binding.getRoot();
@@ -102,7 +104,7 @@ public class ConfirmFragment extends Fragment implements OnMapReadyCallback, Rou
 
             String[] quantity = new String[]{"6 x 1 count", "12 x 1 count", "1 count", "1 count", "10 oz", "12 oz"};
 
-
+            fromTimeLine = true;
             //bundle.putBoolean("fromTimeline", true);
 
             foodName.setText(bundle.getString("foodName", ""));
@@ -127,7 +129,8 @@ public class ConfirmFragment extends Fragment implements OnMapReadyCallback, Rou
                 // TODO Auto-generated method stub
 
 
-                if(bitmap == null){
+                if(bitmap == null  && !
+                        fromTimeLine){
                     Toast toast = Toast.makeText(getContext(), Html.fromHtml("<font color='#ff0000' background-color = '#ff0000' ><b>" + "Need atleast 1 image" + "</b></font>"), Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.TOP, 0, 0);
                     toast.show();

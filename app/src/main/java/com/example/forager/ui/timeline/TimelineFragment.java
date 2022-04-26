@@ -208,7 +208,7 @@ private FragmentTimelineBinding binding;
                     llf.setArguments(bundle);
 
 
-                    ft.replace(R.id.nav_host_fragment_activity_main, llf);
+                    ft.replace(R.id.nav_host_fragment_activity_main, llf).addToBackStack( "tag" );
                     ft.commit();
 
                 }else{
@@ -230,7 +230,7 @@ private FragmentTimelineBinding binding;
 
                         llf.setArguments(bundle);
 
-                        ft.replace(R.id.nav_host_fragment_activity_main, llf);
+                        ft.replace(R.id.nav_host_fragment_activity_main, llf).addToBackStack( "time" );
                         ft.commit();
 
                     }

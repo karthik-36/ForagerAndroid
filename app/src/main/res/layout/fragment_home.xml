@@ -83,7 +83,7 @@
         android:layout_toEndOf="@+id/editTextTextPersonName3"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="search area" />
+        android:text="Search area" />
 
     <ImageView
         android:id="@+id/imageView3"

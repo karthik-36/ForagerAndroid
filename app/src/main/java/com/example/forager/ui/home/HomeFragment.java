@@ -73,6 +73,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
     List<Integer> filteredImages = new ArrayList<Integer>();
     List<LatLng> filteredLatLong = new ArrayList<LatLng>();
     List<String> filteredDonors = new ArrayList<String>();
+    List<String> filteredDistance = new ArrayList<>();
+    List<String> filteredExpiryDate = new ArrayList<>();
+
 
 
     Boolean isNew = true;
@@ -112,19 +115,29 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 "cashews"};
         String[] donorName = {"karthik", "aditya", "peter", "erick", "Nate", "paul", "karthik", "amrit"};
 
+        String[] distance = {"420 m", "734 m", "1.1 km", "1.2 km", "1.4 km", "2.1 km", "2.1 km", "2.2 km"};
+
+        String[] expiryDate = {"11-02-2022", "21-04-2020", "14-05-2022", "14-11-2021", "01-10-2021", "09-06-2021", "01-01-2020", "17-08-2022"};
+
+
         int[] images = {R.drawable.milk, R.drawable.eggs, R.drawable.pb, R.drawable.cottage_cheese, R.drawable.bananas, R.drawable.apple, R.drawable.basmati, R.drawable.cashew};
         destinations = new LatLng[]{new LatLng(41.86970636792965, -87.65487239804796) ,  new LatLng(41.867667097915096, -87.64239594283593) ,  new LatLng(41.87352215752626, -87.64807617785777)  ,  new LatLng(41.863998807911955, -87.6475392074577) ,  new LatLng(41.868376823816185, -87.65775309712812) ,  new LatLng(41.872802617151144, -87.66131585779513) ,  new LatLng(41.87689351773915, -87.65290400086626) ,  new LatLng(41.87262728007855, -87.65644437727795) };
+
+
+
 
         for( int i = 0 ; i < menuItems.length; i++){
                 filteredMenu.add(menuItems[i]);
                 filteredImages.add(images[i]);
                 filteredDonors.add(donorName[i]);
                 filteredLatLong.add(destinations[i]);
+                filteredDistance.add(distance[i]);
+                filteredExpiryDate.add(expiryDate[i]);
         }
 
 
         listview = (ListView) view.findViewById(R.id.mainMenu);
-        adapter = new kAdapter(getContext(), filteredMenu, filteredImages, filteredDonors);
+        adapter = new kAdapter(getContext(), filteredMenu, filteredImages, filteredDonors , filteredDistance , filteredExpiryDate);
         listview.setAdapter(adapter);
 
 
@@ -136,6 +149,11 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ConfirmFragment llf = new ConfirmFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("fromTimeline", false);
+                llf.setArguments(bundle);
+
                 ft.replace(R.id.nav_host_fragment_activity_main, llf);
                 ft.commit();
 
@@ -158,16 +176,22 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 filteredImages.clear();
                 filteredDonors.clear();
                 filteredLatLong.clear();
+                filteredDistance.clear();
+                filteredExpiryDate.clear();
                 for( int i = 0 ; i < menuItems.length; i++){
                     if(menuItems[i].toLowerCase().contains(s.toString().toLowerCase())){
                         filteredMenu.add(menuItems[i]);
                         filteredImages.add(images[i]);
                         filteredLatLong.add(destinations[i]);
                         filteredDonors.add(donorName[i]);
+                        filteredDistance.add(distance[i]);
+                        filteredExpiryDate.add(expiryDate[i]);
                     }
                 }
 
-                mMap.clear();
+                if(mMap != null) {
+                    mMap.clear();
+                }
 
                 for(int i = 0 ; i < filteredLatLong.size() ; i++){
                     Log.d("herem", "onMarkerClick: " + menuItems[i]);
@@ -394,11 +418,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             Log.d("here 2 " , "location is ");
 
             return;
@@ -439,15 +459,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
                 end=latLng;
 
-                //mMap.clear();
 
-               // start = new LatLng(myLocation.getLatitude(),myLocation.getLongitude());
-                //start route finding
-
-               // LatLng curr = new LatLng(41.86908257667361, -87.64799558167456);
-//                mMap.addMarker(new MarkerOptions().position(start).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).title("current location"));
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(start));
-//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom( start, 15));
 
                 Log.d("here1" , "trigger");
 
@@ -543,14 +555,17 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
         List<String> donorName;
 
-        String[] expiryDate = {"2 days"};
+        List<String> distance;
+        List<String> expiryDate;
 
-        kAdapter(Context c, List<String> mI, List<Integer> imgs, List<String> dN) {
+        kAdapter(Context c, List<String> mI, List<Integer> imgs, List<String> dN , List<String >  fD , List<String> fE ) {
             super(c, R.layout.single_row, R.id.itemName, mI);
             this.context = c;
             this.images = imgs;
             this.menuItems = mI;
             this.donorName = dN;
+            this.distance  = fD;
+            this.expiryDate = fE;
         }
 
 
@@ -561,13 +576,11 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = inflater.inflate(R.layout.single_row, parent, false);
 
-
-
-
             ImageView myImage = (ImageView) row.findViewById(R.id.imageView);
             TextView itemName = (TextView) row.findViewById(R.id.itemName);
             TextView expiryText = (TextView) row.findViewById(R.id.expiryText);
             TextView donorText = (TextView) row.findViewById(R.id.donorText);
+            TextView distanceText = (TextView) row.findViewById(R.id.miles);
             RelativeLayout rl = (RelativeLayout) row.findViewById(R.id.wholeRow);
 
             if(selectedList == position){
@@ -578,12 +591,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
             myImage.setImageResource(images.get(position));
             itemName.setText(menuItems.get(position));
-            expiryText.setText(expiryDate[0]);
+            expiryText.setText(expiryDate.get(position));
             donorText.setText(donorName.get(position));
+            distanceText.setText(distance.get(position));
 
             ImageButton deleteImageView = (ImageButton) row.findViewById(R.id.details);
             deleteImageView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     OrdersFragment llf = new OrdersFragment();
@@ -591,11 +606,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
 
                     Bundle bundle = new Bundle();
                     bundle.putString("itemName", menuItems.get(position));
+                    bundle.putBoolean("fromTimeline", false);
                     llf.setArguments(bundle);
 
 
                     ft.replace(R.id.nav_host_fragment_activity_main, llf);
                     ft.commit();
+
                 }
             });
 

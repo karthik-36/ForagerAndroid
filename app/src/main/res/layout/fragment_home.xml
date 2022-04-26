@@ -44,6 +44,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="52dp"
+        android:dividerHeight="2dp"
+        android:divider="@color/yellowLight"
         tools:layout_editor_absoluteX="34dp"
         tools:layout_editor_absoluteY="261dp"></ListView>
 

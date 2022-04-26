@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/border.xml" value="0.461" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/ic_baseline_access_time_filled_24.xml" value="0.1" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/drawable/image_border.xml" value="0.461" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/activity_main.xml" value="0.3109375" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/fragment_confirm.xml" value="0.4140625" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/fragment_dashboard.xml" value="0.3109375" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/fragment_timeline.xml" value="0.3109375" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/list_item.xml" value="0.3242753623188406" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/single_row.xml" value="0.32971014492753625" />
+        <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/layout/timeline.xml" value="0.3578125" />
         <entry key="..\:/Users/karth/AndroidStudioProjects/Forager/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>

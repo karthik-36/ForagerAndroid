@@ -166,8 +166,8 @@ public class ConfirmFragment extends Fragment implements OnMapReadyCallback, Rou
                     return;
                 }
 
-                Toast.makeText(getActivity(), "Order Submitted", Toast.LENGTH_SHORT).show();
-                btn.setText("Edit & Re - Submit");
+                Toast.makeText(getActivity(), "Donation Listing Submitted", Toast.LENGTH_SHORT).show();
+                btn.setText("Edit & Re - Submit Listing");
                 btn.setBackgroundTintList(AppCompatResources.getColorStateList(getContext(), R.color.green));
 //                myButton.backgroundTintList = AppCompatResources.getColorStateList(getContext(), R.color.green);
 //

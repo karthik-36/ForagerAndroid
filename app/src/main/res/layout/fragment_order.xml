@@ -94,7 +94,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="18dp"
         android:layout_marginTop="9dp"
-        android:text="place order" />
+        android:text="Accept donation request" />
 
     <Button
         android:id="@+id/doneButton"
@@ -105,7 +105,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="9dp"
         android:backgroundTint="@color/grey"
-        android:text="order finished!" />
+        android:text="Item has reached receiver!" />
 
     <Button
         android:id="@+id/reception"

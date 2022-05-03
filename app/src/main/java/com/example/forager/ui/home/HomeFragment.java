@@ -2,6 +2,7 @@ package com.example.forager.ui.home;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -76,13 +77,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
     List<String> filteredDistance = new ArrayList<>();
     List<String> filteredExpiryDate = new ArrayList<>();
 
-
-
     Boolean isNew = true;
     EditText editText;
     int selectedList = -1;
     RelativeLayout previousRl;
-
 
     //to get location permissions.
     private final static int LOCATION_REQUEST_CODE = 23;
@@ -109,8 +107,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
 
-
-
         menuItems = new String[]{"500ml Milk", "2 dozen Eggs", "Peanut butter jar", "cottage cheese", "bananas", "apples", "basmati rice",
                 "cashews"};
         String[] donorName = {"karthik", "aditya", "peter", "erick", "Nate", "paul", "karthik", "amrit"};
@@ -118,6 +114,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Routin
         String[] distance = {"420 m", "734 m", "1.1 km", "1.2 km", "1.4 km", "2.1 km", "2.1 km", "2.2 km"};
 
         String[] expiryDate = {"11-02-2022", "21-04-2020", "14-05-2022", "14-11-2021", "01-10-2021", "09-06-2021", "01-01-2020", "17-08-2022"};
+
+
+
+
 
 
         int[] images = {R.drawable.milk, R.drawable.eggs, R.drawable.pb, R.drawable.cottage_cheese, R.drawable.bananas, R.drawable.apple, R.drawable.basmati, R.drawable.cashew};

@@ -140,12 +140,12 @@ private FragmentOrderBinding binding;
 
             descriptions = new String[]{"Fresh Avocados. good for health, I did not want to waste. Bought on 04/20/2022. Best before 3 weeks", "Dozen Mandarin Oranges. Slightly sour taste. And oh yeah the color is orange too!. Bought on 04/20/2022. Best before 2 weeks of expiry", "1 pack of Ruffles of Cheddar and Sour Cream. was a bit too spicy for me. Bought on 03/24/2022. Best before 7 months of manufacturing date", "1 pack of hot chilli takies. was a bit too spicy for my taste. Bought on 03/24/2022. Best before 11 months of manufacturing date" ,  "Fresh Spinach. Wanna get muscles like popeye? better eat this. Bought on 04/15/2022. Best before 04/30/2022", "Fresh Okra. I have no idea what this fruit is. Bought on 04/16/2022. Best before 04/28/2022"};
 
-            titleStatus.setText("Status : "+"Order Received");
+            titleStatus.setText("Status : "+"Donation Received");
             placeOrder.setVisibility(View.GONE);
             reception.setVisibility(View.GONE);
             cancel.setVisibility(View.GONE);
             doneButton.setVisibility(View.VISIBLE);
-            doneButton.setText("Order Received");
+            doneButton.setText("Donation Received");
 
 
         }else {
@@ -239,7 +239,7 @@ private FragmentOrderBinding binding;
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Order Placed!",
+                Toast.makeText(getActivity(), "Donation Request Placed!",
                         Toast.LENGTH_LONG).show();
 
                 titleStatus.setText("Status : "+"Cancelled");
@@ -257,17 +257,17 @@ private FragmentOrderBinding binding;
         reception.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Order Placed!",
+                Toast.makeText(getActivity(), "Donation Request Accepted!",
                         Toast.LENGTH_LONG).show();
 
-                titleStatus.setText("Status : "+"Order Received");
+                titleStatus.setText("Status : "+"Donation Received");
 
 
                 placeOrder.setVisibility(View.GONE);
                 reception.setVisibility(View.GONE);
                 cancel.setVisibility(View.GONE);
                 doneButton.setVisibility(View.VISIBLE);
-                doneButton.setText("Order Received");
+                doneButton.setText("Donation Received");
 
             }
         });

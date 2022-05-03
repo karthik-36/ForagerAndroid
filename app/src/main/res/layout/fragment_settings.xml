@@ -12,9 +12,9 @@
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
-        android:text="Ranga ka Beta"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="42dp"
+        android:text="Karthik Singh"
         android:textSize="20sp" />
 
     <ImageView
@@ -59,23 +59,30 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="256dp"
-        android:layout_height="58dp"
+        android:layout_width="210dp"
+        android:layout_height="53dp"
         android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="35dp"
         android:text="NOTIFICATIONS"
-        android:textAlignment="viewStart" />
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="256dp"
-        android:layout_height="58dp"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
         android:layout_below="@+id/textView16"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="19dp"
         android:text="DARK MODE"
-        android:textAlignment="viewStart" />
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
@@ -86,5 +93,27 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:text="account settings" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="372dp"
+        android:layout_toEndOf="@+id/textView16"
+        android:scaleX="1.5"
+        android:scaleY="1.5" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="440dp"
+        android:layout_toEndOf="@+id/textView16"
+        android:scaleX="1.5"
+        android:scaleY="1.5" />
 
 </RelativeLayout>
